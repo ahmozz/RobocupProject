@@ -82,7 +82,7 @@ while(True):
     corners, ids, rejectedImgPoints = aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
     print("************IDS")
     #print(ids)
-    print("************CORNERS")
+    print("************CORNERS ")
 
     corners_b = []
     all_corners = []
