@@ -42,14 +42,14 @@ def http_control(content):
     return reply
 
 
-#**import numpy as np
-#**import cv2
-#**import cv2.aruco as aruco
+import numpy as np
+import cv2
+import cv2.aruco as aruco
 import socket
 import sys
 import json
 
-#**cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 # For http connexion :
 IP_RASP_PORT = b"localhost"#b'10.3.141.1' # IP of the Raspberry by WIFI
@@ -64,13 +64,13 @@ stream=client_socket.makefile('rwb')
 k = 0
 while(True):
     # Capture frame-by-frame
-    #**ret, frame = cap.read()
+    ret, frame = cap.read()
     #print(frame.shape) #480x640
     # Our operations on the frame come here
 
-    #gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    #aruco_dict = aruco.Dictionary_get(aruco.DICT_6X6_250)
-    #parameters =  aruco.DetectorParameters_create()
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    aruco_dict = aruco.Dictionary_get(aruco.DICT_6X6_250)
+    parameters =  aruco.DetectorParameters_create()
 
     #print(parameters)
 
@@ -79,7 +79,7 @@ while(True):
         mgPoints]]]]) -> corners, ids, rejectedImgPoints
         '''
     #lists of ids and the corners beloning to each idq
-    #corners, ids, rejectedImgPoints = aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
+    corners, ids, rejectedImgPoints = aruco.detectMarkers(gray, aruco_dict, parameters=parameters)
     print("************IDS")
     #print(ids)
     print("************CORNERS")
